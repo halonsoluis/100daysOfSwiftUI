@@ -6,9 +6,10 @@ import SwiftUI
 struct ContentView: View {
     @State private var amount = 0.0
     @State private var numberOfPeople = 2
-    @State private var tipPercentage = 0.20
+    @State private var tipPercentage = 20
+    @FocusState private var amountIsFocused: Bool
 
-    private var tipPercentages = [0, 0.05, 0.10, 0.15, 0.18, 0.20]
+    private var tipPercentages = [0, 5, 10, 15, 18, 20]
 
     var body: some View {
         NavigationView {
@@ -16,6 +17,7 @@ struct ContentView: View {
                 Section {
                     TextField("Total Amount", value: $amount, format: .currency(code: Locale.current.currency?.identifier ?? "EUR"))
                         .keyboardType(.decimalPad)
+                        .focused($amountIsFocused)
 
 
                     Picker("Amount of People", selection: $numberOfPeople) {
@@ -47,6 +49,7 @@ struct ContentView: View {
 
     private var totalPerPerson: Double {
         let peopleCount = Double(numberOfPeople + 2)
+        let tipPercentage = Double(tipPercentage) / 100
         let tip = amount * tipPercentage
 
         return (amount + tip) / peopleCount
