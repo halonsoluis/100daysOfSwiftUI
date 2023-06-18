@@ -43,7 +43,17 @@ struct ContentView: View {
                 } header: {
                     Text("Each one will pay")
                 }
-            }.navigationTitle("WeSplit")
+            }
+            .navigationTitle("WeSplit")
+            .toolbar {
+                ToolbarItemGroup(placement: .keyboard) {
+                    Spacer()
+                    
+                    Button("Done") {
+                        amountIsFocused = false
+                    }
+                }
+            }
         }
     }
 
