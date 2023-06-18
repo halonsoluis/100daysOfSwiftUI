@@ -9,8 +9,6 @@ struct ContentView: View {
     @State private var tipPercentage = 20
     @FocusState private var amountIsFocused: Bool
 
-    private var tipPercentages = [0, 5, 10, 15, 18, 20]
-
     var body: some View {
         NavigationView {
             Form {
@@ -25,21 +23,28 @@ struct ContentView: View {
                             Text("\(amount) people")
                         }
                     }
-                }.padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
+                }
+                .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
 
                 Section {
                     Picker("Tip percentage", selection: $tipPercentage) {
-                        ForEach(tipPercentages, id: \.self) {
+                        ForEach(0..<101) {
                             Text($0, format: .percent)
                         }
-                    }.pickerStyle(.segmented)
+                    }
+                    .pickerStyle(.navigationLink)
                 } header: {
                     Text("How much tip do you want to leave?")
                 }
 
                 Section {
-                    Text(totalPerPerson, format: .currency(code: Locale.current.currency?.identifier ?? "EUR"))
+                    Text(grandTotal, format: currency)
+                } header: {
+                    Text("Grand Total")
+                }
 
+                Section {
+                    Text(totalPerPerson, format: currency)
                 } header: {
                     Text("Each one will pay")
                 }
@@ -57,12 +62,21 @@ struct ContentView: View {
         }
     }
 
-    private var totalPerPerson: Double {
-        let peopleCount = Double(numberOfPeople + 2)
+    private var grandTotal: Double {
         let tipPercentage = Double(tipPercentage) / 100
         let tip = amount * tipPercentage
 
-        return (amount + tip) / peopleCount
+        return (amount + tip)
+    }
+
+    private var totalPerPerson: Double {
+        let peopleCount = Double(numberOfPeople + 2)
+        return grandTotal / peopleCount
+    }
+
+    private var currency: FloatingPointFormatStyle<Double>.Currency {
+        let currencyCode = Locale.current.currency?.identifier ?? "EUR"
+        return FloatingPointFormatStyle<Double>.Currency(code: currencyCode)
     }
 }
 
