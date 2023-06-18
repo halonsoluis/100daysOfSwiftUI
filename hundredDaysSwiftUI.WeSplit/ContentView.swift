@@ -4,8 +4,11 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var amount: Float = 0.0
-    @State private var numberOfPeople: Int = 2
+    @State private var amount = 0.0
+    @State private var numberOfPeople = 2
+    @State private var tipPercentage = 0.20
+
+    private var tipPercentages = [0, 0.05, 0.10, 0.15, 0.18, 0.20]
 
     var body: some View {
         NavigationView {
@@ -23,10 +26,30 @@ struct ContentView: View {
                 }.padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
 
                 Section {
-                    Text("The split amount is \(amount / Float(numberOfPeople + 2))")
+                    Picker("Tip percentage", selection: $tipPercentage) {
+                        ForEach(tipPercentages, id: \.self) {
+                            Text($0, format: .percent)
+                        }
+                    }.pickerStyle(.segmented)
+                } header: {
+                    Text("How much tip do you want to leave?")
+                }
+
+                Section {
+                    Text(totalPerPerson, format: .currency(code: Locale.current.currency?.identifier ?? "EUR"))
+
+                } header: {
+                    Text("Each one will pay")
                 }
             }.navigationTitle("WeSplit")
         }
+    }
+
+    private var totalPerPerson: Double {
+        let peopleCount = Double(numberOfPeople + 2)
+        let tip = amount * tipPercentage
+
+        return (amount + tip) / peopleCount
     }
 }
 
