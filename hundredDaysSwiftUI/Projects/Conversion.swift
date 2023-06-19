@@ -10,6 +10,8 @@ struct Conversion: View {
 
     private let units: [UnitTemperature] = [.celsius, .fahrenheit, .kelvin]
 
+    @FocusState private var amountIsFocused: Bool
+
     var body: some View {
         NavigationView {
             Form {
@@ -33,15 +35,25 @@ struct Conversion: View {
                 Section("Original Amount") {
                     TextField("Original Amount", value: $value, format: .number)
                         .textFieldStyle(.roundedBorder)
+                        .keyboardType(.decimalPad)
+                        .focused($amountIsFocused)
                 }
 
                 Section("Translated Amount") {
                     Text(convertedAmount, format: .number)
                 }
             }
+            .toolbar {
+                ToolbarItemGroup(placement: .keyboard) {
+                    Spacer()
 
-        }
-        .navigationTitle("Temperature conversion")
+                    Button("Done") {
+                        amountIsFocused = false
+                    }
+                }
+            }
+        }.navigationTitle("Temperature conversion")
+
     }
 
     private var convertedAmount: Double {
