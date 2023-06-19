@@ -14,6 +14,7 @@
 		5B5AF31D2A40DBA50081DE8B /* ProjectSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5AF31C2A40DBA50081DE8B /* ProjectSelector.swift */; };
 		5B5AF31F2A40E2600081DE8B /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5AF31E2A40E2600081DE8B /* Project.swift */; };
 		5B5AF3222A40E56D0081DE8B /* Conversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5AF3212A40E56D0081DE8B /* Conversion.swift */; };
+		5BEB1A0E2A40EC4B00B026D9 /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEB1A0D2A40EC4B00B026D9 /* Converter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		5B5AF31C2A40DBA50081DE8B /* ProjectSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectSelector.swift; sourceTree = "<group>"; };
 		5B5AF31E2A40E2600081DE8B /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		5B5AF3212A40E56D0081DE8B /* Conversion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conversion.swift; sourceTree = "<group>"; };
+		5BEB1A0D2A40EC4B00B026D9 /* Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Converter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				5B4116862A3FB74E00363D23 /* WeSplit.swift */,
-				5B5AF3212A40E56D0081DE8B /* Conversion.swift */,
+				5BEB1A0C2A40EC4000B026D9 /* Conversion */,
 			);
 			path = Projects;
 			sourceTree = "<group>";
@@ -92,6 +94,15 @@
 				5B5AF31E2A40E2600081DE8B /* Project.swift */,
 			);
 			path = ProjectHandling;
+			sourceTree = "<group>";
+		};
+		5BEB1A0C2A40EC4000B026D9 /* Conversion */ = {
+			isa = PBXGroup;
+			children = (
+				5B5AF3212A40E56D0081DE8B /* Conversion.swift */,
+				5BEB1A0D2A40EC4B00B026D9 /* Converter.swift */,
+			);
+			path = Conversion;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,6 +179,7 @@
 				5B5AF3222A40E56D0081DE8B /* Conversion.swift in Sources */,
 				5B4116872A3FB74E00363D23 /* WeSplit.swift in Sources */,
 				5B4116852A3FB74E00363D23 /* hundredDaysSwiftUIApp.swift in Sources */,
+				5BEB1A0E2A40EC4B00B026D9 /* Converter.swift in Sources */,
 				5B5AF31F2A40E2600081DE8B /* Project.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
