@@ -38,7 +38,7 @@ struct Conversion: View {
                 }
 
                 Section("Translated Amount") {
-                    Text("\(convertedAmount)")
+                    Text(convertedAmount, format: .number)
                 }
             }
 
