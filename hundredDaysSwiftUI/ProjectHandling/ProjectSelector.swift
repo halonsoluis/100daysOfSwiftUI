@@ -7,8 +7,9 @@ struct ProjectSelector: View {
 
     var body: some View {
         NavigationStack {
-            VStack {
+            VStack(spacing: 10) {
                 NavigationLink("WeSplit", destination: WeSplit())
+                NavigationLink("Conversion", destination: Conversion())
 
             }
             .navigationTitle("100 days of SwiftUI")
