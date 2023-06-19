@@ -1,9 +1,9 @@
-// Created for hundredDaysSwiftUI.WeSplit in 2023
+// Created for hundredDaysSwiftUI in 2023
 // Using Swift 5.0
 
 import SwiftUI
 
-struct ContentView: View {
+struct WeSplit: View {
     @State private var amount = 0.0
     @State private var numberOfPeople = 2
     @State private var tipPercentage = 20
@@ -82,6 +82,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        WeSplit()
     }
 }

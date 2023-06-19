@@ -7,19 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5B4116852A3FB74E00363D23 /* hundredDaysSwiftUI_WeSplitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4116842A3FB74E00363D23 /* hundredDaysSwiftUI_WeSplitApp.swift */; };
-		5B4116872A3FB74E00363D23 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4116862A3FB74E00363D23 /* ContentView.swift */; };
+		5B4116852A3FB74E00363D23 /* hundredDaysSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4116842A3FB74E00363D23 /* hundredDaysSwiftUIApp.swift */; };
+		5B4116872A3FB74E00363D23 /* WeSplit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4116862A3FB74E00363D23 /* WeSplit.swift */; };
 		5B4116892A3FB74F00363D23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B4116882A3FB74F00363D23 /* Assets.xcassets */; };
 		5B41168C2A3FB74F00363D23 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B41168B2A3FB74F00363D23 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5B4116812A3FB74E00363D23 /* hundredDaysSwiftUI.WeSplit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hundredDaysSwiftUI.WeSplit.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		5B4116842A3FB74E00363D23 /* hundredDaysSwiftUI_WeSplitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hundredDaysSwiftUI_WeSplitApp.swift; sourceTree = "<group>"; };
-		5B4116862A3FB74E00363D23 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		5B4116812A3FB74E00363D23 /* hundredDaysSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hundredDaysSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B4116842A3FB74E00363D23 /* hundredDaysSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hundredDaysSwiftUIApp.swift; sourceTree = "<group>"; };
+		5B4116862A3FB74E00363D23 /* WeSplit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeSplit.swift; sourceTree = "<group>"; };
 		5B4116882A3FB74F00363D23 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5B41168B2A3FB74F00363D23 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		5B41168D2A3FB74F00363D23 /* hundredDaysSwiftUI_WeSplit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = hundredDaysSwiftUI_WeSplit.entitlements; sourceTree = "<group>"; };
+		5B41168D2A3FB74F00363D23 /* hundredDaysSwiftUI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = hundredDaysSwiftUI.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,7 +36,7 @@
 		5B4116782A3FB74E00363D23 = {
 			isa = PBXGroup;
 			children = (
-				5B4116832A3FB74E00363D23 /* hundredDaysSwiftUI.WeSplit */,
+				5B4116832A3FB74E00363D23 /* hundredDaysSwiftUI */,
 				5B4116822A3FB74E00363D23 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -44,21 +44,21 @@
 		5B4116822A3FB74E00363D23 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5B4116812A3FB74E00363D23 /* hundredDaysSwiftUI.WeSplit.app */,
+				5B4116812A3FB74E00363D23 /* hundredDaysSwiftUI.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		5B4116832A3FB74E00363D23 /* hundredDaysSwiftUI.WeSplit */ = {
+		5B4116832A3FB74E00363D23 /* hundredDaysSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
-				5B4116842A3FB74E00363D23 /* hundredDaysSwiftUI_WeSplitApp.swift */,
-				5B4116862A3FB74E00363D23 /* ContentView.swift */,
+				5B4116842A3FB74E00363D23 /* hundredDaysSwiftUIApp.swift */,
+				5B5AF31B2A40DA040081DE8B /* Projects */,
 				5B4116882A3FB74F00363D23 /* Assets.xcassets */,
-				5B41168D2A3FB74F00363D23 /* hundredDaysSwiftUI_WeSplit.entitlements */,
+				5B41168D2A3FB74F00363D23 /* hundredDaysSwiftUI.entitlements */,
 				5B41168A2A3FB74F00363D23 /* Preview Content */,
 			);
-			path = hundredDaysSwiftUI.WeSplit;
+			path = hundredDaysSwiftUI;
 			sourceTree = "<group>";
 		};
 		5B41168A2A3FB74F00363D23 /* Preview Content */ = {
@@ -69,12 +69,20 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		5B5AF31B2A40DA040081DE8B /* Projects */ = {
+			isa = PBXGroup;
+			children = (
+				5B4116862A3FB74E00363D23 /* WeSplit.swift */,
+			);
+			path = Projects;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5B4116802A3FB74E00363D23 /* hundredDaysSwiftUI.WeSplit */ = {
+		5B4116802A3FB74E00363D23 /* hundredDaysSwiftUI */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5B4116902A3FB74F00363D23 /* Build configuration list for PBXNativeTarget "hundredDaysSwiftUI.WeSplit" */;
+			buildConfigurationList = 5B4116902A3FB74F00363D23 /* Build configuration list for PBXNativeTarget "hundredDaysSwiftUI" */;
 			buildPhases = (
 				5B41167D2A3FB74E00363D23 /* Sources */,
 				5B41167E2A3FB74E00363D23 /* Frameworks */,
@@ -84,9 +92,9 @@
 			);
 			dependencies = (
 			);
-			name = hundredDaysSwiftUI.WeSplit;
+			name = hundredDaysSwiftUI;
 			productName = hundredDaysSwiftUI.WeSplit;
-			productReference = 5B4116812A3FB74E00363D23 /* hundredDaysSwiftUI.WeSplit.app */;
+			productReference = 5B4116812A3FB74E00363D23 /* hundredDaysSwiftUI.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -104,7 +112,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 5B41167C2A3FB74E00363D23 /* Build configuration list for PBXProject "hundredDaysSwiftUI.WeSplit" */;
+			buildConfigurationList = 5B41167C2A3FB74E00363D23 /* Build configuration list for PBXProject "hundredDaysSwiftUI" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -117,7 +125,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5B4116802A3FB74E00363D23 /* hundredDaysSwiftUI.WeSplit */,
+				5B4116802A3FB74E00363D23 /* hundredDaysSwiftUI */,
 			);
 		};
 /* End PBXProject section */
@@ -139,8 +147,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B4116872A3FB74E00363D23 /* ContentView.swift in Sources */,
-				5B4116852A3FB74E00363D23 /* hundredDaysSwiftUI_WeSplitApp.swift in Sources */,
+				5B4116872A3FB74E00363D23 /* WeSplit.swift in Sources */,
+				5B4116852A3FB74E00363D23 /* hundredDaysSwiftUIApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,11 +275,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = hundredDaysSwiftUI.WeSplit/hundredDaysSwiftUI_WeSplit.entitlements;
+				CODE_SIGN_ENTITLEMENTS = hundredDaysSwiftUI/hundredDaysSwiftUI.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"hundredDaysSwiftUI.WeSplit/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"hundredDaysSwiftUI/Preview Content\"";
 				DEVELOPMENT_TEAM = 4UYDLNWF3R;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -283,8 +292,9 @@
 					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "dev.halonso.hundredDaysSwiftUI-WeSplit";
+				PRODUCT_BUNDLE_IDENTIFIER = dev.halonso.hundredDaysSwiftUI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
@@ -299,11 +309,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = hundredDaysSwiftUI.WeSplit/hundredDaysSwiftUI_WeSplit.entitlements;
+				CODE_SIGN_ENTITLEMENTS = hundredDaysSwiftUI/hundredDaysSwiftUI.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"hundredDaysSwiftUI.WeSplit/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"hundredDaysSwiftUI/Preview Content\"";
 				DEVELOPMENT_TEAM = 4UYDLNWF3R;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -315,8 +326,9 @@
 					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "dev.halonso.hundredDaysSwiftUI-WeSplit";
+				PRODUCT_BUNDLE_IDENTIFIER = dev.halonso.hundredDaysSwiftUI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
@@ -329,7 +341,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5B41167C2A3FB74E00363D23 /* Build configuration list for PBXProject "hundredDaysSwiftUI.WeSplit" */ = {
+		5B41167C2A3FB74E00363D23 /* Build configuration list for PBXProject "hundredDaysSwiftUI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5B41168E2A3FB74F00363D23 /* Debug */,
@@ -338,7 +350,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5B4116902A3FB74F00363D23 /* Build configuration list for PBXNativeTarget "hundredDaysSwiftUI.WeSplit" */ = {
+		5B4116902A3FB74F00363D23 /* Build configuration list for PBXNativeTarget "hundredDaysSwiftUI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5B4116912A3FB74F00363D23 /* Debug */,

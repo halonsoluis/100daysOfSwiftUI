@@ -4,10 +4,10 @@
 import SwiftUI
 
 @main
-struct hundredDaysSwiftUI_WeSplitApp: App {
+struct hundredDaysSwiftUIApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            WeSplit()
         }
     }
 }
