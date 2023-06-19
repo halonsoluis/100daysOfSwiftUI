@@ -7,7 +7,7 @@ import SwiftUI
 struct hundredDaysSwiftUIApp: App {
     var body: some Scene {
         WindowGroup {
-            WeSplit()
+            ProjectSelector()
         }
     }
 }

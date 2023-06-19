@@ -49,6 +49,7 @@ struct WeSplit: View {
                     Text("Each one will pay")
                 }
             }
+            .navigationBarTitleDisplayMode(.inline)
             .navigationTitle("WeSplit")
             .toolbar {
                 ToolbarItemGroup(placement: .keyboard) {
