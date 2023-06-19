@@ -58,11 +58,11 @@ struct Conversion: View {
     }
 
     private var convertedAmount: Double {
-        NSMeasurement(
-            doubleValue: value,
+        Measurement(
+            value: value,
             unit: originalUnit
         )
-        .converting(to: destinationUnit)
+        .converted(to: destinationUnit)
         .value
     }
 }
