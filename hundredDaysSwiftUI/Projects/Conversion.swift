@@ -52,7 +52,8 @@ struct Conversion: View {
                     }
                 }
             }
-        }.navigationTitle("Temperature conversion")
+        }
+        .navigationTitle("Temperature conversion")
 
     }
 

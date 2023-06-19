@@ -49,8 +49,6 @@ struct WeSplit: View {
                     Text("Each one will pay")
                 }
             }
-            .navigationBarTitleDisplayMode(.inline)
-            .navigationTitle("WeSplit")
             .toolbar {
                 ToolbarItemGroup(placement: .keyboard) {
                     Spacer()
@@ -61,6 +59,7 @@ struct WeSplit: View {
                 }
             }
         }
+        .navigationTitle("WeSplit")
     }
 
     private var grandTotal: Double {
