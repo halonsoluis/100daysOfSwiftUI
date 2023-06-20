@@ -14,6 +14,7 @@ struct Flags: View {
     @State private var contestantFlags = FlagCode.flags.keys.shuffled().prefix(4)
 
     @State private var correctAnswer = Int.random(in: 0..<4)
+    @State private var scoreTitle = ""
 
     private func desiredCountryName() -> String {
         Locale.current
@@ -72,19 +73,24 @@ struct Flags: View {
                 Text("Your score is \(score)")
                     .foregroundColor(.white)
 
-                Spacer()
+            }.alert(scoreTitle, isPresented: $displayMessage) {
+                Button("Continue", action: showNewFlags)
+            } message: {
+                Text("Ready for the next set?")
+                    .foregroundColor(.white)
             }
         }
+
+
     }
 
     private func userSelected(flag: String) {
-        if contestantFlags.firstIndex(of: flag) == correctAnswer {
-            score = score + 1
-        }
+        let correct = contestantFlags.firstIndex(of: flag) == correctAnswer
+
+        score = score + (correct ? 1 : 0)
+        scoreTitle = correct ? "Correct" : "Wrong"
 
         displayMessage = true
-
-        showNewFlags()
     }
 
     private func showNewFlags() {
