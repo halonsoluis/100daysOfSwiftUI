@@ -30,7 +30,7 @@ struct Flags: View {
         ZStack {
 
             LinearGradient(
-                colors: [.blue, .black],
+                colors: [.blue, .white],
                 startPoint: .top,
                 endPoint: .bottom
             )
@@ -55,7 +55,8 @@ struct Flags: View {
                             Button(FlagCode.flags[countryCode]!) {
                                 userSelected(flag: countryCode)
                             }
-                            .font(.system(size: 100))
+                            .font(.system(size: 150))
+                            .shadow(radius: 5)
                         }
                     }
                     HStack {
@@ -63,7 +64,8 @@ struct Flags: View {
                             Button(FlagCode.flags[countryCode]!) {
                                 userSelected(flag: countryCode)
                             }
-                            .font(.system(size: 100))
+                            .font(.system(size: 150))
+                            .shadow(radius: 5)
                         }
                     }
                 }
