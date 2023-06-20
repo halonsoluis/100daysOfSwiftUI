@@ -11,6 +11,8 @@ struct RockPaperScissors: View {
     @State private var message: String = ""
     @State private var displayMessage: Bool = false
 
+    @State private var score: Int = 0
+
     private var moves = ["🪨", "📜", "✂️"]
 
     var body: some View {
@@ -42,6 +44,10 @@ struct RockPaperScissors: View {
             }
 
             Spacer()
+
+            Text("Score: \(score)")
+
+            Spacer()
         }
         .alert(message, isPresented: $displayMessage) {
             Button("New Game", action: reset)
@@ -68,6 +74,7 @@ struct RockPaperScissors: View {
 
         message = index == winningPosition ? "You Win" : "You lose"
 
+        score = score + (index == winningPosition ? 1 : 0)
         displayMessage = true
     }
 
