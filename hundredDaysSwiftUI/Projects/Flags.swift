@@ -15,13 +15,20 @@ struct Flags: View {
 
     private var correctAnswer = Int.random(in: 0..<3)
 
+    private func desiredCountryName() -> String {
+        Locale.current
+            .localizedString(
+                forRegionCode: contestantFlags[correctAnswer]
+            )!
+    }
+
     var body: some View {
         VStack(spacing: 20) {
 
             Spacer()
 
             Text("Select the flag for")
-            Text(contestantFlags[correctAnswer])
+            Text(desiredCountryName())
                 .font(.largeTitle)
 
             Spacer()
