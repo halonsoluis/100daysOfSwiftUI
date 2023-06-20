@@ -25,6 +25,8 @@ struct Flags: View {
     }
 
     @State private var displayMessage = false
+    @State private var displayFinalScore = false
+    @State private var attempts = 0
     @State private var score = 0
 
     var body: some View {
@@ -76,6 +78,12 @@ struct Flags: View {
                         Text(message)
                             .foregroundColor(.white)
                     }
+                    .alert(scoreTitle, isPresented: $displayFinalScore) {
+                        Button("New Game", action: reset)
+                    } message: {
+                        Text(message)
+                            .foregroundColor(.white)
+                    }
 
                 }
                 .frame(maxWidth: .infinity)
@@ -83,7 +91,6 @@ struct Flags: View {
                 .background(.regularMaterial)
                 .clipShape(RoundedRectangle(cornerRadius: 20))
                 .padding(.horizontal, 20)
-
 
                 Spacer()
 
@@ -94,10 +101,7 @@ struct Flags: View {
                 Spacer()
             }
             .navigationTitle("Guess the flag")
-
         }
-
-
     }
 
     private func userSelected(flag: String) {
@@ -106,7 +110,7 @@ struct Flags: View {
         score = score + (correct ? 1 : 0)
         scoreTitle = correct ? "Correct" : "Wrong"
 
-        var selectedCountryFlag = Locale.current
+        let selectedCountryFlag = Locale.current
             .localizedString(
                 forRegionCode: flag
             )!
@@ -119,8 +123,21 @@ struct Flags: View {
     }
 
     private func showNewFlags() {
+        guard attempts < 9 else {
+            displayFinalScore = true
+            scoreTitle = "Game Over"
+            message = "Your final score is \(score)"
+            return
+        }
         contestantFlags = FlagCode.flags.keys.shuffled().prefix(4)
         correctAnswer = Int.random(in: 0..<4)
+        attempts = attempts + 1
+    }
+
+    private func reset() {
+        attempts = -1
+        score = 0
+        showNewFlags()
     }
 }
 
