@@ -11,9 +11,9 @@ struct FlagCode {
 
 struct Flags: View {
 
-    private var contestantFlags = FlagCode.flags.keys.shuffled().prefix(4)
+    @State private var contestantFlags = FlagCode.flags.keys.shuffled().prefix(4)
 
-    private var correctAnswer = Int.random(in: 0..<4)
+    @State private var correctAnswer = Int.random(in: 0..<4)
 
     private func desiredCountryName() -> String {
         Locale.current
@@ -83,6 +83,13 @@ struct Flags: View {
         }
 
         displayMessage = true
+
+        showNewFlags()
+    }
+
+    private func showNewFlags() {
+        contestantFlags = FlagCode.flags.keys.shuffled().prefix(4)
+        correctAnswer = Int.random(in: 0..<4)
     }
 }
 
