@@ -39,6 +39,7 @@ struct WeSplit: View {
 
                 Section {
                     Text(grandTotal, format: currency)
+                        .foregroundColor(tipPercentage == 0 ? .red : .primary)
                 } header: {
                     Text("Grand Total")
                 }
