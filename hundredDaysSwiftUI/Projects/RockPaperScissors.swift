@@ -26,7 +26,7 @@ struct RockPaperScissors: View {
             Text(computerImageMove)
                 .font(.system(size: 100))
                 .padding()
-
+                .animation(.default, value: computerImageMove)
 
             Text("Now is your turn.")
                 .font(.largeTitle)
