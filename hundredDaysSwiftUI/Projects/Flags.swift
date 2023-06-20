@@ -22,6 +22,9 @@ struct Flags: View {
             )!
     }
 
+    @State private var displayMessage = false
+    @State private var score = 0
+
     var body: some View {
         ZStack {
 
@@ -33,6 +36,7 @@ struct Flags: View {
             .ignoresSafeArea()
 
             VStack {
+
 
                 Spacer()
 
@@ -46,22 +50,39 @@ struct Flags: View {
 
                 VStack(spacing: 0) {
                     HStack {
-                        ForEach(contestantFlags.prefix(2), id: \.self) {
-                            Button(FlagCode.flags[$0]!) {}
-                                .font(.system(size: 100))
+                        ForEach(contestantFlags.prefix(2), id: \.self) { countryCode in
+                            Button(FlagCode.flags[countryCode]!) {
+                                userSelected(flag: countryCode)
+                            }
+                            .font(.system(size: 100))
                         }
                     }
                     HStack {
-                        ForEach(contestantFlags.suffix(2), id: \.self) {
-                            Button(FlagCode.flags[$0]!) {}
-                                .font(.system(size: 100))
+                        ForEach(contestantFlags.suffix(2), id: \.self) { countryCode in
+                            Button(FlagCode.flags[countryCode]!) {
+                                userSelected(flag: countryCode)
+                            }
+                            .font(.system(size: 100))
                         }
                     }
                 }
 
                 Spacer()
+
+                Text("Your score is \(score)")
+                    .foregroundColor(.white)
+
+                Spacer()
             }
         }
+    }
+
+    private func userSelected(flag: String) {
+        if contestantFlags.firstIndex(of: flag) == correctAnswer {
+            score = score + 1
+        }
+
+        displayMessage = true
     }
 }
 
