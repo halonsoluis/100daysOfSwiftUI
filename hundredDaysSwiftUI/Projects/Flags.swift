@@ -17,7 +17,7 @@ struct FlagImage: View {
             .font(.system(size: 150))
             .shadow(radius: 5)
     }
-} 
+}
 
 struct GridStack <Content: View>: View {
     let rows: Int
@@ -34,6 +34,25 @@ struct GridStack <Content: View>: View {
                 }
             }
         }
+    }
+}
+
+struct LeveledModifier: ViewModifier {
+
+    func body(content: Content) -> some View {
+        content
+            .frame(maxWidth: .infinity)
+            .padding(.vertical, 20)
+            .background(.regularMaterial)
+            .clipShape(RoundedRectangle(cornerRadius: 20))
+            .padding(.horizontal, 20)
+            .shadow(radius: 20)
+    }
+}
+
+extension View {
+    func leveled() -> some View {
+        modifier(LeveledModifier())
     }
 }
 
@@ -102,11 +121,7 @@ struct Flags: View {
                     }
 
                 }
-                .frame(maxWidth: .infinity)
-                .padding(.vertical, 20)
-                .background(.regularMaterial)
-                .clipShape(RoundedRectangle(cornerRadius: 20))
-                .padding(.horizontal, 20)
+                .leveled()
 
                 Spacer()
 
