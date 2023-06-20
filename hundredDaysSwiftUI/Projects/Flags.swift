@@ -15,6 +15,7 @@ struct Flags: View {
 
     @State private var correctAnswer = Int.random(in: 0..<4)
     @State private var scoreTitle = ""
+    @State private var message = ""
 
     private func desiredCountryName() -> String {
         Locale.current
@@ -72,7 +73,7 @@ struct Flags: View {
                     .alert(scoreTitle, isPresented: $displayMessage) {
                         Button("Continue", action: showNewFlags)
                     } message: {
-                        Text("Ready for the next set?")
+                        Text(message)
                             .foregroundColor(.white)
                     }
 
@@ -104,6 +105,15 @@ struct Flags: View {
 
         score = score + (correct ? 1 : 0)
         scoreTitle = correct ? "Correct" : "Wrong"
+
+        var selectedCountryFlag = Locale.current
+            .localizedString(
+                forRegionCode: flag
+            )!
+
+        message = correct
+        ? "Great! Get ready for the next set."
+        : "That's the flag of \(selectedCountryFlag)"
 
         displayMessage = true
     }
