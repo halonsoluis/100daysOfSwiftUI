@@ -9,6 +9,16 @@ struct FlagCode {
     ]
 }
 
+struct FlagImage: View {
+    var countryCode: String
+
+    var body: some View {
+        Text(FlagCode.flags[countryCode]!)
+            .font(.system(size: 150))
+            .shadow(radius: 5)
+    }
+}
+
 struct Flags: View {
 
     @State private var contestantFlags = FlagCode.flags.keys.shuffled().prefix(4)
@@ -56,22 +66,24 @@ struct Flags: View {
                     VStack {
                         HStack {
                             ForEach(contestantFlags.prefix(2), id: \.self) { countryCode in
-                                Button(FlagCode.flags[countryCode]!) {
+                                Button {
                                     userSelected(flag: countryCode)
+                                } label: {
+                                    FlagImage(countryCode: countryCode)
                                 }
                             }
                         }
                         
                         HStack {
                             ForEach(contestantFlags.suffix(2), id: \.self) { countryCode in
-                                Button(FlagCode.flags[countryCode]!) {
+                                Button {
                                     userSelected(flag: countryCode)
+                                } label: {
+                                    FlagImage(countryCode: countryCode)
                                 }
                             }
                         }
                     }
-                    .font(.system(size: 150))
-                    .shadow(radius: 5)
                     .alert(scoreTitle, isPresented: $displayMessage) {
                         Button("Continue", action: showNewFlags)
                     } message: {
