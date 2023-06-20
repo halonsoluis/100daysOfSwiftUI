@@ -101,10 +101,8 @@ struct Flags: View {
                         .foregroundStyle(.primary)
 
                     GridStack(rows: 2, cols: 2) { index in
-                        Button {
-                            userSelected(flag: contestantFlags[index])
-                        } label: {
-                            FlagImage(countryCode: contestantFlags[index])
+                        FlagButton(index: index, flags: Array(contestantFlags)) {
+                            userSelected(flag: $0)
                         }
                     }
                     .alert(scoreTitle, isPresented: $displayMessage) {
@@ -132,6 +130,20 @@ struct Flags: View {
                 Spacer()
             }
             .navigationTitle("Guess the flag")
+        }
+    }
+
+    struct FlagButton: View {
+        var index: Int
+        var flags: [String]
+        var selected: (String) -> Void
+
+        var body: some View {
+            Button {
+                selected(flags[index])
+            } label: {
+                FlagImage(countryCode: flags[index])
+            }
         }
     }
 
