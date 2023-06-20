@@ -22,14 +22,14 @@ struct FlagImage: View {
 struct GridStack <Content: View>: View {
     let rows: Int
     let cols: Int
-    let content: (Int, Int) -> Content
+    let content: (Int) -> Content
 
     var body: some View {
         VStack {
             ForEach(0..<rows, id: \.self) { row in
                 HStack {
                     ForEach(0..<cols, id: \.self) { column in
-                        content(row, column)
+                        content(row * cols + column)
                     }
                 }
             }
@@ -100,11 +100,11 @@ struct Flags: View {
                         .font(.title.bold())
                         .foregroundStyle(.primary)
 
-                    GridStack(rows: 2, cols: 2) { row, column in
+                    GridStack(rows: 2, cols: 2) { index in
                         Button {
-                            userSelected(flag: contestantFlags[row * 2 + column])
+                            userSelected(flag: contestantFlags[index])
                         } label: {
-                            FlagImage(countryCode: contestantFlags[row * 2 + column])
+                            FlagImage(countryCode: contestantFlags[index])
                         }
                     }
                     .alert(scoreTitle, isPresented: $displayMessage) {
