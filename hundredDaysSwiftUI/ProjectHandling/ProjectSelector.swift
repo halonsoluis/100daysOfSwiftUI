@@ -16,8 +16,7 @@ struct ProjectSelector: View {
             }
             .navigationTitle("100 days of SwiftUI")
             .navigationBarTitleDisplayMode(.inline)
-
-        }.ignoresSafeArea()
+        }
     }
 }
 

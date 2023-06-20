@@ -29,58 +29,71 @@ struct Flags: View {
     var body: some View {
         ZStack {
 
-            LinearGradient(
-                colors: [.blue, .white],
-                startPoint: .top,
-                endPoint: .bottom
+            RadialGradient(
+                colors: [.red, .blue],
+                center: .top,
+                startRadius: 300,
+                endRadius: 600
             )
             .ignoresSafeArea()
 
             VStack {
 
-
                 Spacer()
 
-                Text("Select the flag for")
-                    .foregroundColor(.white)
-                Text(desiredCountryName())
-                    .font(.largeTitle)
-                    .foregroundColor(.white)
+                VStack() {
 
-                Spacer()
+                    Text("Select the flag for")
+                        .font(.subheadline.bold())
+                        .foregroundStyle(.secondary)
+                    Text(desiredCountryName())
+                        .font(.title.bold())
+                        .foregroundStyle(.primary)
 
-                VStack(spacing: 0) {
-                    HStack {
-                        ForEach(contestantFlags.prefix(2), id: \.self) { countryCode in
-                            Button(FlagCode.flags[countryCode]!) {
-                                userSelected(flag: countryCode)
+                    VStack {
+                        HStack {
+                            ForEach(contestantFlags.prefix(2), id: \.self) { countryCode in
+                                Button(FlagCode.flags[countryCode]!) {
+                                    userSelected(flag: countryCode)
+                                }
                             }
-                            .font(.system(size: 150))
-                            .shadow(radius: 5)
+                        }
+                        
+                        HStack {
+                            ForEach(contestantFlags.suffix(2), id: \.self) { countryCode in
+                                Button(FlagCode.flags[countryCode]!) {
+                                    userSelected(flag: countryCode)
+                                }
+                            }
                         }
                     }
-                    HStack {
-                        ForEach(contestantFlags.suffix(2), id: \.self) { countryCode in
-                            Button(FlagCode.flags[countryCode]!) {
-                                userSelected(flag: countryCode)
-                            }
-                            .font(.system(size: 150))
-                            .shadow(radius: 5)
-                        }
+                    .font(.system(size: 150))
+                    .shadow(radius: 5)
+                    .alert(scoreTitle, isPresented: $displayMessage) {
+                        Button("Continue", action: showNewFlags)
+                    } message: {
+                        Text("Ready for the next set?")
+                            .foregroundColor(.white)
                     }
+
                 }
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 20)
+                .background(.regularMaterial)
+                .clipShape(RoundedRectangle(cornerRadius: 20))
+                .padding(.horizontal, 20)
+
 
                 Spacer()
 
                 Text("Your score is \(score)")
                     .foregroundColor(.white)
 
-            }.alert(scoreTitle, isPresented: $displayMessage) {
-                Button("Continue", action: showNewFlags)
-            } message: {
-                Text("Ready for the next set?")
-                    .foregroundColor(.white)
+                Spacer()
+                Spacer()
             }
+            .navigationTitle("Guess the flag")
+
         }
 
 
