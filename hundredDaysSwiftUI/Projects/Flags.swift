@@ -17,13 +17,31 @@ struct FlagImage: View {
             .font(.system(size: 150))
             .shadow(radius: 5)
     }
+} 
+
+struct GridStack <Content: View>: View {
+    let rows: Int
+    let cols: Int
+    let content: (Int, Int) -> Content
+
+    var body: some View {
+        VStack {
+            ForEach(0..<rows, id: \.self) { row in
+                HStack {
+                    ForEach(0..<cols, id: \.self) { column in
+                        content(row, column)
+                    }
+                }
+            }
+        }
+    }
 }
 
 struct Flags: View {
 
     @State private var contestantFlags = FlagCode.flags.keys.shuffled().prefix(4)
-
     @State private var correctAnswer = Int.random(in: 0..<4)
+
     @State private var scoreTitle = ""
     @State private var message = ""
 
@@ -63,25 +81,11 @@ struct Flags: View {
                         .font(.title.bold())
                         .foregroundStyle(.primary)
 
-                    VStack {
-                        HStack {
-                            ForEach(contestantFlags.prefix(2), id: \.self) { countryCode in
-                                Button {
-                                    userSelected(flag: countryCode)
-                                } label: {
-                                    FlagImage(countryCode: countryCode)
-                                }
-                            }
-                        }
-                        
-                        HStack {
-                            ForEach(contestantFlags.suffix(2), id: \.self) { countryCode in
-                                Button {
-                                    userSelected(flag: countryCode)
-                                } label: {
-                                    FlagImage(countryCode: countryCode)
-                                }
-                            }
+                    GridStack(rows: 2, cols: 2) { row, column in
+                        Button {
+                            userSelected(flag: contestantFlags[row * 2 + column])
+                        } label: {
+                            FlagImage(countryCode: contestantFlags[row * 2 + column])
                         }
                     }
                     .alert(scoreTitle, isPresented: $displayMessage) {
