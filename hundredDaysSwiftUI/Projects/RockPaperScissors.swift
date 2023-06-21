@@ -12,45 +12,58 @@ struct RockPaperScissors: View {
     @State private var displayMessage: Bool = false
 
     @State private var score: Int = 0
+    @State private var userWins: Bool = false
 
     private var moves = ["🪨", "📜", "✂️"]
+    private var feedbackOptions = ["😵", "😁", "😐"]
 
     var body: some View {
-        VStack {
 
-            Spacer()
+        ZStack {
 
-            Text("I have decided my move")
-                .font(.largeTitle)
+            VStack {
 
-            Text(computerImageMove)
-                .font(.system(size: 100))
-                .padding()
-                .animation(.default, value: computerImageMove)
+                Spacer()
 
-            Text("Now is your turn.")
-                .font(.largeTitle)
-            Text("Select the one you need to \(needsWin ? "Win" : "Lose")!")
-                .font(.largeTitle)
+                Text("I have decided my move")
+                    .font(.largeTitle)
 
-            HStack {
-                ForEach(0..<3) { index in
-                    Button(moves[index]) {
-                        userSelected(index: index)
-                    }
+                Text(computerImageMove)
                     .font(.system(size: 100))
                     .padding()
+                    .animation(.default, value: computerImageMove)
+
+                Text("Now is your turn.")
+                    .font(.largeTitle)
+                Text("Select the one you need to \(needsWin ? "Win" : "Lose")!")
+                    .font(.largeTitle)
+
+                HStack {
+                    ForEach(0..<3) { index in
+                        Button(moves[index]) {
+                            userSelected(index: index)
+                        }
+                        .font(.system(size: 100))
+                        .padding()
+                    }
                 }
+
+                Spacer()
+
+                Text("Score: \(score)")
+
+                Spacer()
             }
 
-            Spacer()
+            VStack {
+                Spacer()
+                
+                Button(message, action: reset)
+                    .leveled()
+                    .font(.system(size: 300))
+                    .opacity(displayMessage ? 1 : 0)
+            }
 
-            Text("Score: \(score)")
-
-            Spacer()
-        }
-        .alert(message, isPresented: $displayMessage) {
-            Button("New Game", action: reset)
         }
     }
 
@@ -59,7 +72,7 @@ struct RockPaperScissors: View {
         computerImageMove = moves[computerMove]
 
         guard index != computerMove else {
-            message = "That's a tie"
+            message = feedbackOptions[2]
 
             displayMessage = true
             return
@@ -72,7 +85,7 @@ struct RockPaperScissors: View {
             winningPosition = 0
         }
 
-        message = index == winningPosition ? "You Win" : "You lose"
+        message = feedbackOptions[index == winningPosition ? 1 : 0]
 
         score = score + (index == winningPosition ? 1 : 0)
         displayMessage = true
@@ -82,6 +95,8 @@ struct RockPaperScissors: View {
         computerMove = Int.random(in: 0..<3)
         needsWin.toggle()
         computerImageMove = "🤖"
+        message = ""
+        displayMessage.toggle()
     }
 }
 
