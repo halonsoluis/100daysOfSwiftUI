@@ -21,6 +21,9 @@ struct RockPaperScissors: View {
 
         ZStack {
 
+            LinearGradient(colors: [.green, .blue, .white], startPoint: .topLeading, endPoint: .bottomTrailing)
+                .ignoresSafeArea()
+
             VStack {
 
                 Spacer()
@@ -38,13 +41,19 @@ struct RockPaperScissors: View {
                 Text("Select the one you need to \(needsWin ? "Win" : "Lose")!")
                     .font(.largeTitle)
 
-                HStack {
+                Spacer()
+
+                HStack(spacing: 20) {
                     ForEach(0..<3) { index in
                         Button(moves[index]) {
                             userSelected(index: index)
                         }
-                        .font(.system(size: 100))
-                        .padding()
+                        .font(.system(size: 90))
+                        .padding(.vertical, 20)
+                        .background(.regularMaterial)
+                        .clipShape(RoundedRectangle(cornerRadius: 20))
+                        .padding(.horizontal, 10)
+                        .shadow(radius: 10)
                     }
                 }
 
@@ -57,7 +66,7 @@ struct RockPaperScissors: View {
 
             VStack {
                 Spacer()
-                
+
                 Button(message, action: reset)
                     .leveled()
                     .font(.system(size: 300))
