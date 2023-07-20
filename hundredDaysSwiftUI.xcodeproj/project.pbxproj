@@ -19,6 +19,8 @@
 		5B7B400D2A69DB950067C748 /* Flags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7B400C2A69DB950067C748 /* Flags.swift */; };
 		5B7B40112A69DC1C0067C748 /* LeveledModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7B40102A69DC1C0067C748 /* LeveledModifier.swift */; };
 		5B7B40132A69DC220067C748 /* FlagImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7B40122A69DC220067C748 /* FlagImage.swift */; };
+		5B7B40172A69DF2B0067C748 /* Words.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7B40162A69DF2B0067C748 /* Words.swift */; };
+		5B7B40192A69DF3B0067C748 /* Scramble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7B40182A69DF3B0067C748 /* Scramble.swift */; };
 		5BEB1A122A425FF500B026D9 /* RockPaperScissors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEB1A112A425FF500B026D9 /* RockPaperScissors.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +39,9 @@
 		5B7B400C2A69DB950067C748 /* Flags.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flags.swift; sourceTree = "<group>"; };
 		5B7B40102A69DC1C0067C748 /* LeveledModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeveledModifier.swift; sourceTree = "<group>"; };
 		5B7B40122A69DC220067C748 /* FlagImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlagImage.swift; sourceTree = "<group>"; };
+		5B7B40142A69DEE60067C748 /* Animations.swiftpm */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Animations.swiftpm; path = "../../../../../Library/Mobile Documents/iCloud~com~apple~Playgrounds/Documents/Animations.swiftpm"; sourceTree = "<group>"; };
+		5B7B40162A69DF2B0067C748 /* Words.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Words.swift; sourceTree = "<group>"; };
+		5B7B40182A69DF3B0067C748 /* Scramble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scramble.swift; sourceTree = "<group>"; };
 		5BEB1A112A425FF500B026D9 /* RockPaperScissors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RockPaperScissors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -91,6 +96,8 @@
 		5B5AF31B2A40DA040081DE8B /* Projects */ = {
 			isa = PBXGroup;
 			children = (
+				5B7B40152A69DF140067C748 /* Scramble */,
+				5B7B40142A69DEE60067C748 /* Animations.swiftpm */,
 				5B4116862A3FB74E00363D23 /* WeSplit.swift */,
 				5B5AF3212A40E56D0081DE8B /* Conversion.swift */,
 				5B7B40072A69DB6D0067C748 /* Flags */,
@@ -134,6 +141,15 @@
 				5B7B40102A69DC1C0067C748 /* LeveledModifier.swift */,
 			);
 			path = Modifiers;
+			sourceTree = "<group>";
+		};
+		5B7B40152A69DF140067C748 /* Scramble */ = {
+			isa = PBXGroup;
+			children = (
+				5B7B40182A69DF3B0067C748 /* Scramble.swift */,
+				5B7B40162A69DF2B0067C748 /* Words.swift */,
+			);
+			path = Scramble;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,6 +231,8 @@
 				5B7B40132A69DC220067C748 /* FlagImage.swift in Sources */,
 				5B7B40112A69DC1C0067C748 /* LeveledModifier.swift in Sources */,
 				5B4116852A3FB74E00363D23 /* hundredDaysSwiftUIApp.swift in Sources */,
+				5B7B40172A69DF2B0067C748 /* Words.swift in Sources */,
+				5B7B40192A69DF3B0067C748 /* Scramble.swift in Sources */,
 				5B7B40092A69DB820067C748 /* FlagCode.swift in Sources */,
 				5B5AF31F2A40E2600081DE8B /* Project.swift in Sources */,
 			);

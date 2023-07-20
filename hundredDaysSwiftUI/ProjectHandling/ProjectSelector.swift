@@ -13,6 +13,7 @@ struct ProjectSelector: View {
                 NavigationLink("Conversion", destination: Conversion())
                 NavigationLink("Flags", destination: Flags())
                 NavigationLink("RockPaperScissors", destination: RockPaperScissors())
+                NavigationLink("Scramble", destination: Scramble())
 
             }
             .navigationTitle("100 days of SwiftUI")
