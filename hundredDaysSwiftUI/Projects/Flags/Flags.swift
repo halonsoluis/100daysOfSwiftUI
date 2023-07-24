@@ -68,22 +68,34 @@ struct Flags: View {
                                 userSelected(flag: contestantFlags[index])
                             }
                             waiting = true
-                         
-                                  //  AudioServicesPlaySystemSound(1023)
+
+                            selectedFlag == correctAnswer
+                                ?   AudioServicesPlaySystemSound(1016)
+                                :   AudioServicesPlaySystemSound(1100)
+                                
                             
                         } label: {
                             VStack(spacing: -10) {
-                            
-                            FlagImage(
-                                countryCode: contestantFlags[index],
-                                isSelected: !waiting && selectedFlag == index,
-                                isCorrect: !waiting && index == correctAnswer
-                            )
-                           
-                            Text("\(country(contestantFlags[index]))")
-                                .opacity(waiting ? 1 : 0)
-                                .font(.subheadline.bold())
-                                .foregroundColor(.white)
+
+                                let selectionIsMade = !waiting
+                                let correctFlag = index == correctAnswer
+
+                                let isSelected = selectionIsMade && selectedFlag == index
+                                let isCorrect = selectionIsMade && correctFlag
+
+                                FlagImage(
+                                    countryCode: contestantFlags[index],
+                                    isSelected: isSelected,
+                                    isCorrect: isCorrect
+                                )
+                                .opacity(selectionIsMade ? 1
+                                         : correctFlag ? 1
+                                            : 0.50)
+
+                                Text("\(country(contestantFlags[index]))")
+                                    .opacity(waiting ? 1 : 0)
+                                    .font(.subheadline.bold())
+                                    .foregroundColor(.black)
                             }
                         }
                         

@@ -20,5 +20,6 @@ struct FlagImage: View {
                 isSelected && isCorrect ? CGSize(width: 1.5, height: 1.5) : .init(width: 1, height: 1),
                 anchor: .center
             )
+
     }
 }
