@@ -74,7 +74,7 @@ struct Flags: View {
                                 :   AudioServicesPlaySystemSound(1100)
                                 
                             
-                        } label: {
+                        } label: { 
                             VStack(spacing: -10) {
 
                                 let selectionIsMade = !waiting

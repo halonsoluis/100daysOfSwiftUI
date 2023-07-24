@@ -11,12 +11,22 @@ struct ProjectSelector: View {
                 ZStack {
 
                     RadialGradient(
-                        colors: [.black, .red, .black, .black, .black, .red, .black, .black],
-                        center: .center,
-                        startRadius: 280,
-                        endRadius: 900
+                        colors: [
+                            .red,
+                            .red.opacity(0.1),
+                            .black,
+                            .red.opacity(0.5),
+                            .red.opacity(0.8),
+                            .red,
+                            .black,
+                            .black
+                        ],
+                        center: .leading,
+                        startRadius: 00,
+                        endRadius: 800
                     )
-                    .ignoresSafeArea()
+                        .ignoresSafeArea()
+                        .background(Color.black)
 
                 VStack(alignment: .leading, spacing: 10) {
 
@@ -25,6 +35,7 @@ struct ProjectSelector: View {
                     NavigationLink("Flags", destination: Flags())
                     NavigationLink("RockPaperScissors", destination: RockPaperScissors())
                     NavigationLink("Scramble", destination: Scramble())
+                    NavigationLink("Multiplicate", destination: Multiplicate())
 
                 }
                 .padding(20)
