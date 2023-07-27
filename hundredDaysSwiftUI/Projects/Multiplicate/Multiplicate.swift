@@ -3,11 +3,9 @@
 
 import SwiftUI
 
-
-
 ///Appealing idea..
 ///
-///Make  recordigns of previous games of the person, in terms of time per qeustion.
+///Make recordigns of previous games of the person, in terms of time per question.
 ///Then, in dependence of the difficulty provide a value to use to increase the empire.
 ///For now, empire can be red vs blue. even more colors could apply.
 ///
@@ -18,43 +16,74 @@ struct Multiplicate: View {
     @FocusState private var answerIsFocused: Bool
     @State var leftOperand = 7
     @State var rightOperand = 7
-    @State var answer: Int?
-    @State var correct = false
+    @State var answer: String = ""
+    @State var previousAnswers = [(expression: String, correct: Bool)]()
 
     var isCorrectAnswer: Bool {
-        leftOperand * rightOperand == answer
+        rightAnswer == Int(answer)
+    }
+
+    var rightAnswer: Int {
+        leftOperand * rightOperand
     }
 
     var body: some View {
 
-        HStack(alignment: .center) {
-            Text(leftOperand, format: .number)
-            Text("x")
-            Text(rightOperand, format: .number)
-            Text(" = ")
-
-            TextField("__", value: $answer, format: .number)
-                .keyboardType(.numberPad)
-                .labelsHidden()
-                .focused($answerIsFocused)
-                .frame(width: 50)
-        }
-        .font(.largeTitle)
-        .foregroundColor(answer == nil
-                         ? .primary
-                         : isCorrectAnswer
-                            ? .green
-                            : .red
-        )
-        .toolbar {
-            ToolbarItemGroup(placement: .keyboard) {
-                Spacer()
-
-                Button("Done") {
-                    answerIsFocused = !isCorrectAnswer
+        ZStack {
+            List {
+                ForEach(previousAnswers, id: \.self.expression) {
+                    Text($0.expression)
+                        .foregroundColor($0.correct ? .green : .red)
                 }
             }
+
+            HStack(alignment: .center) {
+                Group {
+                    Text(leftOperand, format: .number)
+                    Text("x")
+                    Text(rightOperand, format: .number)
+                    Text(" = ")
+
+                    TextField("__", text: $answer)
+                        .keyboardType(.numberPad)
+                        .labelsHidden()
+                        .focused($answerIsFocused)
+                        .frame(width: 50)
+                }
+                .font(.largeTitle)
+            }
+            .padding()
+            .background(
+                RoundedRectangle(cornerRadius: 20)
+                    .fill(.orange)
+            )
+            .toolbar {
+                ToolbarItemGroup(placement: .keyboard) {
+
+                    Spacer()
+
+                    Button("Done") {
+                        if let answer = Int(answer) {
+                            let item = (
+                                expression: "\(leftOperand) x \(rightOperand) = \(answer)",
+                                correct: isCorrectAnswer
+                            )
+                            previousAnswers.insert(item, at: 0)
+                        }
+
+                        nextQuestion()
+                    }
+                }
+
+            }
         }
+    }
+
+    private func nextQuestion() {
+        self.answer = ""
+
+        leftOperand = 7
+        rightOperand = Int.random(in: 0...10)
     }
 }
 
