@@ -13,11 +13,18 @@ import SwiftUI
 
 struct Multiplicate: View {
 
+    @State var multiplicationTables = [7, 5, 8, 6, 9]
+    @State var questionsToAnswer: Int = 2
+
     @FocusState private var answerIsFocused: Bool
     @State var leftOperand = 7
     @State var rightOperand = 7
     @State var answer: String = ""
     @State var previousAnswers = [(expression: String, correct: Bool)]()
+
+    var isReady: Bool {
+        !multiplicationTables.isEmpty && questionsToAnswer > 0
+    }
 
     var isCorrectAnswer: Bool {
         rightAnswer == Int(answer)
@@ -51,12 +58,14 @@ struct Multiplicate: View {
                         .frame(width: 50)
                 }
                 .font(.largeTitle)
+                .padding()
+                .background(
+                    RoundedRectangle(cornerRadius: 20)
+                        .fill(.orange)
+                )
+                .opacity(isReady ? 1 : 0)
             }
-            .padding()
-            .background(
-                RoundedRectangle(cornerRadius: 20)
-                    .fill(.orange)
-            )
+            .onAppear(perform: createProblem)
             .toolbar {
                 ToolbarItemGroup(placement: .keyboard) {
 
@@ -76,13 +85,21 @@ struct Multiplicate: View {
                 }
 
             }
+
         }
     }
 
     private func nextQuestion() {
+        questionsToAnswer = questionsToAnswer - 1
+        answerIsFocused = questionsToAnswer > 0
+
         self.answer = ""
 
-        leftOperand = 7
+        createProblem()
+    }
+
+    private func createProblem() {
+        leftOperand = multiplicationTables.randomElement() ?? 7
         rightOperand = Int.random(in: 0...10)
     }
 }
