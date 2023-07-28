@@ -16,7 +16,7 @@ struct Multiplicate: View {
    var allMultiplicationTables = Array(2...12)
 
     @State var multiplicationTables = Set<Int>()
-    @State var questionsToAnswer: Int = 0
+    @State var questionsToAnswer: Int = 10
 
     @FocusState private var answerIsFocused: Bool
     @State var leftOperand = 7
@@ -87,6 +87,7 @@ struct Multiplicate: View {
                         createProblem()
                     }
                 }
+                .opacity(!multiplicationTables.isEmpty ? 1 : 0)
             }
             .opacity(isReady || gameStarted ? 0 : 1)
 
@@ -150,7 +151,7 @@ struct Multiplicate: View {
 
     private func createProblem() {
         leftOperand = multiplicationTables.randomElement() ?? 0
-        rightOperand = Int.random(in: 0...10)
+        rightOperand = Int.random(in: 2...9)
     }
 }
 
