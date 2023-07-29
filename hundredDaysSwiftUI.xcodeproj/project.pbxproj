@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B262EAF2A75693F00EE2E1D /* KenneyAnimals.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B262EAE2A75693F00EE2E1D /* KenneyAnimals.xcassets */; };
+		5B262EB12A756C3F00EE2E1D /* Animals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B262EB02A756C3F00EE2E1D /* Animals.swift */; };
 		5B4116852A3FB74E00363D23 /* hundredDaysSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4116842A3FB74E00363D23 /* hundredDaysSwiftUIApp.swift */; };
 		5B4116872A3FB74E00363D23 /* WeSplit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4116862A3FB74E00363D23 /* WeSplit.swift */; };
 		5B4116892A3FB74F00363D23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B4116882A3FB74F00363D23 /* Assets.xcassets */; };
@@ -26,6 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5B262EAE2A75693F00EE2E1D /* KenneyAnimals.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = KenneyAnimals.xcassets; sourceTree = "<group>"; };
+		5B262EB02A756C3F00EE2E1D /* Animals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animals.swift; sourceTree = "<group>"; };
 		5B4116812A3FB74E00363D23 /* hundredDaysSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hundredDaysSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B4116842A3FB74E00363D23 /* hundredDaysSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hundredDaysSwiftUIApp.swift; sourceTree = "<group>"; };
 		5B4116862A3FB74E00363D23 /* WeSplit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeSplit.swift; sourceTree = "<group>"; };
@@ -159,6 +163,8 @@
 			isa = PBXGroup;
 			children = (
 				5B7B401B2A6EC7690067C748 /* Multiplicate.swift */,
+				5B262EAE2A75693F00EE2E1D /* KenneyAnimals.xcassets */,
+				5B262EB02A756C3F00EE2E1D /* Animals.swift */,
 			);
 			path = Multiplicate;
 			sourceTree = "<group>";
@@ -221,6 +227,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B262EAF2A75693F00EE2E1D /* KenneyAnimals.xcassets in Resources */,
 				5B41168C2A3FB74F00363D23 /* Preview Assets.xcassets in Resources */,
 				5B4116892A3FB74F00363D23 /* Assets.xcassets in Resources */,
 			);
@@ -243,6 +250,7 @@
 				5B7B40112A69DC1C0067C748 /* LeveledModifier.swift in Sources */,
 				5B7B401C2A6EC7690067C748 /* Multiplicate.swift in Sources */,
 				5B4116852A3FB74E00363D23 /* hundredDaysSwiftUIApp.swift in Sources */,
+				5B262EB12A756C3F00EE2E1D /* Animals.swift in Sources */,
 				5B7B40172A69DF2B0067C748 /* Words.swift in Sources */,
 				5B7B40192A69DF3B0067C748 /* Scramble.swift in Sources */,
 				5B7B40092A69DB820067C748 /* FlagCode.swift in Sources */,

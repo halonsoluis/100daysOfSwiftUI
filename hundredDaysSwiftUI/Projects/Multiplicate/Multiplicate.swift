@@ -41,12 +41,14 @@ struct Multiplicate: View {
     var body: some View {
 
         ZStack {
-            List {
-                ForEach(previousAnswers, id: \.self.expression) {
-                    Text($0.expression)
-                        .foregroundColor($0.correct ? .green : .red)
+            VStack(alignment: .center) {
+                List {
+                    ForEach(previousAnswers, id: \.self.expression) {
+                        Text($0.expression)
+                            .foregroundColor($0.correct ? .green : .red)
+                    }
                 }
-            }
+            }.opacity(!isReady && gameStarted && gameEnded ? 1 : 0)
 
             Form {
                 Section("How many questions to ask?") {
@@ -91,27 +93,41 @@ struct Multiplicate: View {
             }
             .opacity(isReady || gameStarted ? 0 : 1)
 
-            HStack(alignment: .center) {
-                Group {
-                    Text(leftOperand, format: .number)
-                    Text("x")
-                    Text(rightOperand, format: .number)
-                    Text(" = ")
+            VStack(alignment: .center) {
 
-                    TextField("  ? ", text: $answer)
-                        .keyboardType(.numberPad)
-                        .labelsHidden()
-                        .focused($answerIsFocused)
-                        .frame(width: 50)
+                Spacer()
+                Spacer()
+
+                HStack(alignment: .center) {
+                    Group {
+                        Text(leftOperand, format: .number)
+                        Text("x")
+                        Text(rightOperand, format: .number)
+                        Text(" = ")
+
+                        TextField("  ? ", text: $answer)
+                            .keyboardType(.numberPad)
+                            .labelsHidden()
+                            .focused($answerIsFocused)
+                            .frame(width: 50)
+                    }
+                    .font(.largeTitle)
+                    .padding()
+                    .background(
+                        RoundedRectangle(cornerRadius: 20)
+                            .fill(.orange)
+                    )
                 }
-                .font(.largeTitle)
-                .padding()
-                .background(
-                    RoundedRectangle(cornerRadius: 20)
-                        .fill(.orange)
-                )
-                .opacity(isReady && gameStarted && !gameEnded ? 1 : 0)
+
+                Spacer()
+
+                Image(String(Animals.names.randomElement()!))
+                    .leveled()
+
+                Spacer()
+
             }
+            .opacity(isReady && gameStarted && !gameEnded ? 1 : 0)
             .toolbar {
                 ToolbarItemGroup(placement: .keyboard) {
 
@@ -125,13 +141,10 @@ struct Multiplicate: View {
                             )
                             previousAnswers.insert(item, at: 0)
                         }
-
                         nextQuestion()
                     }
                 }
-
             }
-
         }
     }
 
