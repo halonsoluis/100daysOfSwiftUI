@@ -37,6 +37,7 @@ struct ProjectSelector: View {
                     NavigationLink("Scramble", destination: Scramble())
                     NavigationLink("Multiplicate", destination: Multiplicate())
                     NavigationLink("iExpense", destination: iExpense())
+                    NavigationLink("ListActions", destination: ListActions())
 
                 }
                 .padding(20)
