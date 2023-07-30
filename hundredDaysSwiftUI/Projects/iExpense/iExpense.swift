@@ -3,9 +3,21 @@
 
 import SwiftUI
 
+class User: ObservableObject {
+    @Published var firstName = "Bilbo"
+    @Published var lastName = "Baggins"
+}
+
 struct iExpense: View {
+    @StateObject private var user = User()
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text("Your name is \(user.firstName) \(user.lastName).")
+
+            TextField("First name", text: $user.firstName)
+            TextField("Last name", text: $user.lastName)
+        }
     }
 }
 
