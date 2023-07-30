@@ -27,7 +27,7 @@ struct iExpense: View {
                 showingSheet.toggle()
             }
             .sheet(isPresented: $showingSheet) {
-                SecondView(name: user.firstName)
+                SecondView(user: user)
             }
 
             Spacer()
@@ -36,12 +36,12 @@ struct iExpense: View {
 }
 
 struct SecondView: View {
-    let name: String
+    @ObservedObject var user: User
 
     @Environment(\.dismiss) var dismiss
 
     var body: some View {
-        Text("Hello, \(name)!")
+        Text("Hello, \(user.firstName)!")
 
         Button("Dismiss") {
             dismiss()
