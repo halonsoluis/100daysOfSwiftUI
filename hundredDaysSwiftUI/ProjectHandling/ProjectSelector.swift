@@ -36,6 +36,7 @@ struct ProjectSelector: View {
                     NavigationLink("RockPaperScissors", destination: RockPaperScissors())
                     NavigationLink("Scramble", destination: Scramble())
                     NavigationLink("Multiplicate", destination: Multiplicate())
+                    NavigationLink("iExpense", destination: iExpense())
 
                 }
                 .padding(20)
