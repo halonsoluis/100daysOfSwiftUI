@@ -5,7 +5,7 @@ import SwiftUI
 
 struct ListActions: View {
     @State private var numbers = [Int]()
-    @State private var currentNumber = UserDefaults.standard.integer(forKey: "ListActions.Number")
+    @AppStorage("ListActions.Number") private var currentNumber = 0
 
     var body: some View {
         NavigationView {
@@ -20,7 +20,6 @@ struct ListActions: View {
                 Button("Add Number") {
                     numbers.append(currentNumber)
                     currentNumber += 1
-                    UserDefaults.standard.set(self.currentNumber, forKey: "ListActions.Number")
                 }
             }
             .navigationTitle("onDelete()")
