@@ -23,7 +23,7 @@ struct ListActions: View {
                 }
             }
             .navigationTitle("onDelete()")
-            .toolbar {
+            .toolbar { // Always make sure this is not on the NavigationView, weird behaviour may happen
                 EditButton()
             }
         }
